@@ -325,7 +325,7 @@
 <!-- ════════════════════════════════════════════
      STORITVE
 ════════════════════════════════════════════ -->
-<section id="storitve" class="py-24 bg-white">
+<section id="storitve" class="py-24" style="background:#F8F9FA;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <div class="text-center mb-14 fiu">
@@ -350,138 +350,168 @@
       <div class="overflow-hidden">
         <div id="svc-track" class="flex gap-6" style="transition:transform .45s cubic-bezier(.4,0,.2,1);">
 
-          <!-- 1 Avtomobilsko -->
           <div class="svc-slide flex-none">
-            <a href="avtomobilsko-zavarovanje.html" class="svc-card group block bg-white rounded-2xl shadow-md overflow-hidden hover:no-underline">
-              <div class="relative overflow-hidden">
-                <img src="insuro_img_avto.png" alt="Avtomobilsko zavarovanje" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"/>
-                <div class="absolute bottom-3 right-3 w-14 h-14 bg-white rounded-xl shadow-lg flex items-center justify-center">
-                  <svg class="h-7 w-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 17H3v-5l2.5-5h13l2.5 5v5h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M7.5 15h9"/>
-                  </svg>
-                </div>
+            <a href="avtomobilsko-zavarovanje.html" class="svc-card group block bg-white rounded-2xl shadow-md hover:shadow-xl hover:no-underline" style="overflow:hidden;">
+              <!-- Image -->
+              <div class="overflow-hidden">
+                <img src="insuro_img_avto.png" alt="Avtomobilsko zavarovanje" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" style="height:220px;"/>
               </div>
-              <div class="p-6">
+              <!-- Badge overlaps image via negative margin -->
+              <div class="px-5 pb-0">
+                <div class="flex justify-end relative z-10" style="margin-top:-36px; margin-bottom:12px;">
+                  <div class="w-[68px] h-[68px] bg-white rounded-xl shadow-xl flex items-center justify-center border border-gray-100">
+                    <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 17H3v-5l2.5-5h13l2.5 5v5h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M7.5 15h9"/>
+                    </svg>
+                  </div>
+                </div>
+                <!-- Content -->
                 <h3 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">Avtomobilsko zavarovanje</h3>
-                <div class="w-8 h-0.5 mb-4" style="background-color:#0B6B4F;"></div>
+                <div class="w-8 mb-4" style="height:3px;background-color:#0B6B4F;border-radius:2px;"></div>
                 <p class="font-body text-gray-500 text-sm leading-relaxed mb-5">Obvezno in kasko zavarovanje za vaše vozilo. Najboljše cene vseh zavarovalnic na enem mestu.</p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all" style="color:#0B6B4F;">
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all mb-5" style="color:#0B6B4F;">
                   Izvedi več <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </span>
               </div>
+              <!-- Bottom accent bar -->
+              <div style="height:4px;background-color:#0B6B4F;"></div>
             </a>
           </div>
-
-          <!-- 2 Zdravstveno -->
           <div class="svc-slide flex-none">
-            <a href="zdravstveno-zavarovanje.html" class="svc-card group block bg-white rounded-2xl shadow-md overflow-hidden hover:no-underline">
-              <div class="relative overflow-hidden">
-                <img src="insuro_img_zdravje.png" alt="Zdravstveno zavarovanje" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"/>
-                <div class="absolute bottom-3 right-3 w-14 h-14 bg-white rounded-xl shadow-lg flex items-center justify-center">
-                  <svg class="h-7 w-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/><path d="M12 9v6M9 12h6"/>
-                  </svg>
-                </div>
+            <a href="zdravstveno-zavarovanje.html" class="svc-card group block bg-white rounded-2xl shadow-md hover:shadow-xl hover:no-underline" style="overflow:hidden;">
+              <!-- Image -->
+              <div class="overflow-hidden">
+                <img src="insuro_img_zdravje.png" alt="Zdravstveno zavarovanje" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" style="height:220px;"/>
               </div>
-              <div class="p-6">
+              <!-- Badge overlaps image via negative margin -->
+              <div class="px-5 pb-0">
+                <div class="flex justify-end relative z-10" style="margin-top:-36px; margin-bottom:12px;">
+                  <div class="w-[68px] h-[68px] bg-white rounded-xl shadow-xl flex items-center justify-center border border-gray-100">
+                    <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/><path d="M12 9v6M9 12h6"/>
+                    </svg>
+                  </div>
+                </div>
+                <!-- Content -->
                 <h3 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">Zdravstveno zavarovanje</h3>
-                <div class="w-8 h-0.5 mb-4" style="background-color:#0B6B4F;"></div>
+                <div class="w-8 mb-4" style="height:3px;background-color:#0B6B4F;border-radius:2px;"></div>
                 <p class="font-body text-gray-500 text-sm leading-relaxed mb-5">Dopolnilno in dodatno zdravstveno zavarovanje za vas in vašo družino. Hitro in brez papirjev.</p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all" style="color:#0B6B4F;">
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all mb-5" style="color:#0B6B4F;">
                   Izvedi več <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </span>
               </div>
+              <!-- Bottom accent bar -->
+              <div style="height:4px;background-color:#0B6B4F;"></div>
             </a>
           </div>
-
-          <!-- 3 Življenjsko -->
           <div class="svc-slide flex-none">
-            <a href="zivljenjsko-zavarovanje.html" class="svc-card group block bg-white rounded-2xl shadow-md overflow-hidden hover:no-underline">
-              <div class="relative overflow-hidden">
-                <img src="insuro_img_zivljenje.png" alt="Življenjsko zavarovanje" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"/>
-                <div class="absolute bottom-3 right-3 w-14 h-14 bg-white rounded-xl shadow-lg flex items-center justify-center">
-                  <svg class="h-7 w-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
-                  </svg>
-                </div>
+            <a href="zivljenjsko-zavarovanje.html" class="svc-card group block bg-white rounded-2xl shadow-md hover:shadow-xl hover:no-underline" style="overflow:hidden;">
+              <!-- Image -->
+              <div class="overflow-hidden">
+                <img src="insuro_img_zivljenje.png" alt="Življenjsko zavarovanje" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" style="height:220px;"/>
               </div>
-              <div class="p-6">
+              <!-- Badge overlaps image via negative margin -->
+              <div class="px-5 pb-0">
+                <div class="flex justify-end relative z-10" style="margin-top:-36px; margin-bottom:12px;">
+                  <div class="w-[68px] h-[68px] bg-white rounded-xl shadow-xl flex items-center justify-center border border-gray-100">
+                    <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+                    </svg>
+                  </div>
+                </div>
+                <!-- Content -->
                 <h3 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">Življenjsko zavarovanje</h3>
-                <div class="w-8 h-0.5 mb-4" style="background-color:#0B6B4F;"></div>
+                <div class="w-8 mb-4" style="height:3px;background-color:#0B6B4F;border-radius:2px;"></div>
                 <p class="font-body text-gray-500 text-sm leading-relaxed mb-5">Poskrbite za varnost svojih bližnjih. Življenjsko zavarovanje po meri z najboljšimi pogoji.</p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all" style="color:#0B6B4F;">
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all mb-5" style="color:#0B6B4F;">
                   Izvedi več <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </span>
               </div>
+              <!-- Bottom accent bar -->
+              <div style="height:4px;background-color:#0B6B4F;"></div>
             </a>
           </div>
-
-          <!-- 4 Premoženjsko -->
           <div class="svc-slide flex-none">
-            <a href="premozenjsko-zavarovanje.html" class="svc-card group block bg-white rounded-2xl shadow-md overflow-hidden hover:no-underline">
-              <div class="relative overflow-hidden">
-                <img src="insuro_img_premozenje.png" alt="Premoženjsko zavarovanje" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"/>
-                <div class="absolute bottom-3 right-3 w-14 h-14 bg-white rounded-xl shadow-lg flex items-center justify-center">
-                  <svg class="h-7 w-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>
-                  </svg>
-                </div>
+            <a href="premozenjsko-zavarovanje.html" class="svc-card group block bg-white rounded-2xl shadow-md hover:shadow-xl hover:no-underline" style="overflow:hidden;">
+              <!-- Image -->
+              <div class="overflow-hidden">
+                <img src="insuro_img_premozenje.png" alt="Premoženjsko zavarovanje" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" style="height:220px;"/>
               </div>
-              <div class="p-6">
+              <!-- Badge overlaps image via negative margin -->
+              <div class="px-5 pb-0">
+                <div class="flex justify-end relative z-10" style="margin-top:-36px; margin-bottom:12px;">
+                  <div class="w-[68px] h-[68px] bg-white rounded-xl shadow-xl flex items-center justify-center border border-gray-100">
+                    <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>
+                    </svg>
+                  </div>
+                </div>
+                <!-- Content -->
                 <h3 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">Premoženjsko zavarovanje</h3>
-                <div class="w-8 h-0.5 mb-4" style="background-color:#0B6B4F;"></div>
+                <div class="w-8 mb-4" style="height:3px;background-color:#0B6B4F;border-radius:2px;"></div>
                 <p class="font-body text-gray-500 text-sm leading-relaxed mb-5">Zavarovanje hiše, stanovanja in vsebine. Zaščitite svoje premoženje pred nepredvidenimi situacijami.</p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all" style="color:#0B6B4F;">
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all mb-5" style="color:#0B6B4F;">
                   Izvedi več <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </span>
               </div>
+              <!-- Bottom accent bar -->
+              <div style="height:4px;background-color:#0B6B4F;"></div>
             </a>
           </div>
-
-          <!-- 5 Za podjetja -->
           <div class="svc-slide flex-none">
-            <a href="zavarovanje-za-podjetja.html" class="svc-card group block bg-white rounded-2xl shadow-md overflow-hidden hover:no-underline">
-              <div class="relative overflow-hidden">
-                <img src="insuro_img_podjetja.png" alt="Zavarovanje za podjetja" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"/>
-                <div class="absolute bottom-3 right-3 w-14 h-14 bg-white rounded-xl shadow-lg flex items-center justify-center">
-                  <svg class="h-7 w-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M2 12h20"/>
-                  </svg>
-                </div>
+            <a href="zavarovanje-za-podjetja.html" class="svc-card group block bg-white rounded-2xl shadow-md hover:shadow-xl hover:no-underline" style="overflow:hidden;">
+              <!-- Image -->
+              <div class="overflow-hidden">
+                <img src="insuro_img_podjetja.png" alt="Zavarovanje za podjetja" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" style="height:220px;"/>
               </div>
-              <div class="p-6">
+              <!-- Badge overlaps image via negative margin -->
+              <div class="px-5 pb-0">
+                <div class="flex justify-end relative z-10" style="margin-top:-36px; margin-bottom:12px;">
+                  <div class="w-[68px] h-[68px] bg-white rounded-xl shadow-xl flex items-center justify-center border border-gray-100">
+                    <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M2 12h20"/>
+                    </svg>
+                  </div>
+                </div>
+                <!-- Content -->
                 <h3 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">Zavarovanje za podjetja</h3>
-                <div class="w-8 h-0.5 mb-4" style="background-color:#0B6B4F;"></div>
+                <div class="w-8 mb-4" style="height:3px;background-color:#0B6B4F;border-radius:2px;"></div>
                 <p class="font-body text-gray-500 text-sm leading-relaxed mb-5">Celovite rešitve za podjetja vseh velikosti. Odgovornost, premoženje, zaposleni — vse v enem.</p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all" style="color:#0B6B4F;">
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all mb-5" style="color:#0B6B4F;">
                   Izvedi več <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </span>
               </div>
+              <!-- Bottom accent bar -->
+              <div style="height:4px;background-color:#0B6B4F;"></div>
             </a>
           </div>
-
-          <!-- 6 Pokojninsko -->
           <div class="svc-slide flex-none">
-            <a href="pokojninsko-varcevanje.html" class="svc-card group block bg-white rounded-2xl shadow-md overflow-hidden hover:no-underline">
-              <div class="relative overflow-hidden">
-                <img src="insuro_img_pokojnina.png" alt="Pokojninsko varčevanje" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"/>
-                <div class="absolute bottom-3 right-3 w-14 h-14 bg-white rounded-xl shadow-lg flex items-center justify-center">
-                  <svg class="h-7 w-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2C9.24 2 7 4.24 7 7v1H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V10a2 2 0 00-2-2h-2V7c0-2.76-2.24-5-5-5z"/><path d="M9 8V7a3 3 0 016 0v1"/><circle cx="12" cy="15" r="2"/><path d="M12 17v2"/>
-                  </svg>
-                </div>
+            <a href="pokojninsko-varcevanje.html" class="svc-card group block bg-white rounded-2xl shadow-md hover:shadow-xl hover:no-underline" style="overflow:hidden;">
+              <!-- Image -->
+              <div class="overflow-hidden">
+                <img src="insuro_img_pokojnina.png" alt="Pokojninsko varčevanje" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" style="height:220px;"/>
               </div>
-              <div class="p-6">
+              <!-- Badge overlaps image via negative margin -->
+              <div class="px-5 pb-0">
+                <div class="flex justify-end relative z-10" style="margin-top:-36px; margin-bottom:12px;">
+                  <div class="w-[68px] h-[68px] bg-white rounded-xl shadow-xl flex items-center justify-center border border-gray-100">
+                    <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2C9.24 2 7 4.24 7 7v1H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V10a2 2 0 00-2-2h-2V7c0-2.76-2.24-5-5-5z"/><path d="M9 8V7a3 3 0 016 0v1"/><circle cx="12" cy="15" r="2"/><path d="M12 17v2"/>
+                    </svg>
+                  </div>
+                </div>
+                <!-- Content -->
                 <h3 class="font-heading text-lg font-bold text-secondary mb-2 group-hover:text-primary transition-colors">Pokojninsko varčevanje</h3>
-                <div class="w-8 h-0.5 mb-4" style="background-color:#0B6B4F;"></div>
+                <div class="w-8 mb-4" style="height:3px;background-color:#0B6B4F;border-radius:2px;"></div>
                 <p class="font-body text-gray-500 text-sm leading-relaxed mb-5">Varčujte za prihodnost s pokojninskim zavarovanjem. Davčne olajšave in varni donosi.</p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all" style="color:#0B6B4F;">
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-3 transition-all mb-5" style="color:#0B6B4F;">
                   Izvedi več <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </span>
               </div>
+              <!-- Bottom accent bar -->
+              <div style="height:4px;background-color:#0B6B4F;"></div>
             </a>
           </div>
-
         </div>
       </div>
 
