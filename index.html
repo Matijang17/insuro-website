@@ -539,39 +539,43 @@
   if (!track) return;
   var slides = track.querySelectorAll('.svc-slide');
   var total  = slides.length;
-  var cur    = 0;
+  var page   = 0;
 
   function vis() {
     return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
   }
 
+  function pages() {
+    return Math.ceil(total / vis());
+  }
+
   function buildDots() {
-    var pages = total - vis() + 1;
+    var p = pages();
     dotsEl.innerHTML = '';
-    for (var i = 0; i < pages; i++) {
+    for (var i = 0; i < p; i++) {
       var d = document.createElement('button');
       d.setAttribute('aria-label', 'Stran ' + (i+1));
-      d.style.cssText = 'border:none;cursor:pointer;border-radius:9999px;height:8px;transition:all .25s;background:' + (i===cur?'#0B6B4F':'#d1d5db') + ';width:' + (i===cur?'24px':'8px') + ';';
-      (function(idx){ d.onclick = function(){ cur=idx; update(); }; })(i);
+      d.style.cssText = 'border:none;cursor:pointer;border-radius:9999px;height:8px;transition:all .25s;background:' + (i===page?'#0B6B4F':'#d1d5db') + ';width:' + (i===page?'24px':'8px') + ';';
+      (function(idx){ d.onclick = function(){ page=idx; update(); }; })(i);
       dotsEl.appendChild(d);
     }
   }
 
   function update() {
-    var v = vis();
-    var max = Math.max(0, total - v);
-    if (cur > max) cur = max;
+    var v   = vis();
+    var max = pages() - 1;
+    if (page > max) page = max;
+    /* jump by a full group of v cards */
+    var startCard = page * v;
     var w = slides[0] ? slides[0].offsetWidth + 24 : 0;
-    track.style.transform = 'translateX(-' + (cur * w) + 'px)';
+    track.style.transform = 'translateX(-' + (startCard * w) + 'px)';
     buildDots();
   }
 
-  document.getElementById('svc-prev').onclick = function(){ if(cur>0){ cur--; update(); } };
-  document.getElementById('svc-next').onclick = function(){
-    if(cur < total - vis()){ cur++; update(); }
-  };
+  document.getElementById('svc-prev').onclick = function(){ if(page>0){ page--; update(); } };
+  document.getElementById('svc-next').onclick = function(){ if(page < pages()-1){ page++; update(); } };
 
-  window.addEventListener('resize', function(){ cur=0; update(); });
+  window.addEventListener('resize', function(){ page=0; update(); });
   window.addEventListener('load', update);
   update();
 })();
