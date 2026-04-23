@@ -114,9 +114,6 @@
       transform: translateY(-6px);
       box-shadow: 0 20px 40px rgba(11,107,79,.13);
     }
-    .svc-slide { flex: 0 0 calc(50% - 12px); }
-    @media (min-width:1024px) { .svc-slide { flex: 0 0 calc(33.333% - 16px); } }
-
     /* ── Testimonial ── */
     .tcard { transition: transform .28s ease; }
     .tcard:hover { transform: translateY(-4px); }
@@ -349,7 +346,7 @@
       <div class="overflow-hidden">
         <div id="svc-track" class="flex gap-6" style="transition:transform .45s cubic-bezier(.4,0,.2,1);">
 
-          <div class="svc-slide flex-none">
+          <div class="svc-slide">
             <a href="avtomobilsko-zavarovanje.html" class="svc-card group flex flex-col bg-white hover:no-underline" style="border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); transition:box-shadow .28s ease,transform .28s ease;">
               <!-- Image -->
               <div class="relative flex-shrink-0">
@@ -377,7 +374,7 @@
               <div style="height:4px; background-color:#0B6B4F; border-radius:0 0 12px 12px;"></div>
             </a>
           </div>
-          <div class="svc-slide flex-none">
+          <div class="svc-slide">
             <a href="zdravstveno-zavarovanje.html" class="svc-card group flex flex-col bg-white hover:no-underline" style="border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); transition:box-shadow .28s ease,transform .28s ease;">
               <!-- Image -->
               <div class="relative flex-shrink-0">
@@ -405,7 +402,7 @@
               <div style="height:4px; background-color:#0B6B4F; border-radius:0 0 12px 12px;"></div>
             </a>
           </div>
-          <div class="svc-slide flex-none">
+          <div class="svc-slide">
             <a href="zivljenjsko-zavarovanje.html" class="svc-card group flex flex-col bg-white hover:no-underline" style="border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); transition:box-shadow .28s ease,transform .28s ease;">
               <!-- Image -->
               <div class="relative flex-shrink-0">
@@ -433,7 +430,7 @@
               <div style="height:4px; background-color:#0B6B4F; border-radius:0 0 12px 12px;"></div>
             </a>
           </div>
-          <div class="svc-slide flex-none">
+          <div class="svc-slide">
             <a href="premozenjsko-zavarovanje.html" class="svc-card group flex flex-col bg-white hover:no-underline" style="border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); transition:box-shadow .28s ease,transform .28s ease;">
               <!-- Image -->
               <div class="relative flex-shrink-0">
@@ -461,7 +458,7 @@
               <div style="height:4px; background-color:#0B6B4F; border-radius:0 0 12px 12px;"></div>
             </a>
           </div>
-          <div class="svc-slide flex-none">
+          <div class="svc-slide">
             <a href="zavarovanje-za-podjetja.html" class="svc-card group flex flex-col bg-white hover:no-underline" style="border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); transition:box-shadow .28s ease,transform .28s ease;">
               <!-- Image -->
               <div class="relative flex-shrink-0">
@@ -489,7 +486,7 @@
               <div style="height:4px; background-color:#0B6B4F; border-radius:0 0 12px 12px;"></div>
             </a>
           </div>
-          <div class="svc-slide flex-none">
+          <div class="svc-slide">
             <a href="pokojninsko-varcevanje.html" class="svc-card group flex flex-col bg-white hover:no-underline" style="border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); transition:box-shadow .28s ease,transform .28s ease;">
               <!-- Image -->
               <div class="relative flex-shrink-0">
@@ -546,37 +543,54 @@
   if (!track) return;
   var slides = track.querySelectorAll('.svc-slide');
   var total  = slides.length;
-  var cur = 0;
+  var cur    = 0;
+  var GAP    = 24;
 
   function vis() {
-    return window.innerWidth >= 1024 ? 3 : 2;
+    /* use container width — bulletproof, no CSS conflict */
+    return track.parentElement.offsetWidth >= 900 ? 3 : 2;
+  }
+
+  function applyWidths() {
+    var v = vis();
+    var containerW = track.parentElement.offsetWidth;
+    var w = Math.floor((containerW - (v - 1) * GAP) / v);
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].style.width      = w + 'px';
+      slides[i].style.flexShrink = '0';
+      slides[i].style.flexGrow   = '0';
+    }
+    return w;
   }
 
   function buildDots() {
-    var count = total - vis() + 1;
+    var v     = vis();
+    var count = total - v + 1;
     dotsEl.innerHTML = '';
     for (var i = 0; i < count; i++) {
       var d = document.createElement('button');
-      d.setAttribute('aria-label', 'Stran ' + (i+1));
-      d.style.cssText = 'border:none;cursor:pointer;border-radius:9999px;height:8px;transition:all .25s;background:' + (i===cur?'#0B6B4F':'#d1d5db') + ';width:' + (i===cur?'24px':'8px') + ';';
-      (function(idx){ d.onclick = function(){ cur=idx; update(); }; })(i);
+      d.setAttribute('aria-label', 'Stran ' + (i + 1));
+      d.style.cssText = 'border:none;cursor:pointer;border-radius:9999px;height:8px;transition:all .25s;'
+        + 'background:' + (i === cur ? '#0B6B4F' : '#d1d5db') + ';'
+        + 'width:'      + (i === cur ? '24px'    : '8px')     + ';';
+      (function(idx){ d.onclick = function(){ cur = idx; update(); }; })(i);
       dotsEl.appendChild(d);
     }
   }
 
   function update() {
     var v   = vis();
-    var max = Math.max(0, total - v);
+    var max = total - v;
     if (cur > max) cur = max;
-    var w = slides[0] ? slides[0].offsetWidth + 24 : 0;
-    track.style.transform = 'translateX(-' + (cur * w) + 'px)';
+    var w   = applyWidths();
+    track.style.transform = 'translateX(-' + (cur * (w + GAP)) + 'px)';
     buildDots();
   }
 
-  document.getElementById('svc-prev').onclick = function(){ if(cur>0){ cur--; update(); } };
-  document.getElementById('svc-next').onclick = function(){ if(cur < total - vis()){ cur++; update(); } };
+  document.getElementById('svc-prev').onclick = function(){ if (cur > 0){ cur--; update(); } };
+  document.getElementById('svc-next').onclick = function(){ if (cur < total - vis()){ cur++; update(); } };
 
-  window.addEventListener('resize', function(){ cur=0; update(); });
+  window.addEventListener('resize', function(){ cur = 0; update(); });
   window.addEventListener('load', update);
   update();
 })();
