@@ -84,15 +84,13 @@
     #navbar.scrolled { background-color: #fff; box-shadow: 0 2px 20px rgba(0,0,0,.09); }
     #navbar.scrolled .nav-link { color: #0A2540; }
     #navbar.scrolled .nav-link:hover { color: #0B6B4F; }
-    #navbar .flex-shrink-0 {position: relative;}
     #navbar:not(.scrolled) .nav-link { color: #fff; }
     #navbar:not(.scrolled) .nav-link:hover { color: #d0f0e4; }
     #navbar.scrolled #mob-icon { color: #0A2540; }
     #navbar:not(.scrolled) #mob-icon { color: #fff; }
-    .logo {position: absolute; top: 50%; left: 0; transform: translateY(-50%); transition: opacity .25s ease;}
     .logo-light { opacity: 1; }
     .logo-dark  { opacity: 0; }
-    #navbar.scrolled .logo-light { opacity: 0; }
+    #navbar.scrolled .logo-light { opacity: 0; pointer-events: none; }
     #navbar.scrolled .logo-dark  { opacity: 1; }
 
     /* ── Blob frames ── */
@@ -139,9 +137,11 @@
     <div class="flex items-center justify-between" style="height:5.5rem;">
 
       <!-- Logo -->
-      <a href="index.html" class="flex-shrink-0">
-        <img src="insuro_logo_beli.png" alt="INSURO zavarovalniška agencija" style="height:4rem; width:auto; object-fit:contain;" />
-        <img src="insuro_logo_glavni.png" alt="INSURO" class="logo logo-dark" style="height:4rem; width:auto;"/>
+      <a href="index.html" class="flex-shrink-0" style="position:relative; display:inline-block;">
+        <!-- White logo: in normal flow so anchor has correct width -->
+        <img src="insuro_logo_beli.png" alt="INSURO zavarovalniška agencija" class="logo-light" style="height:4rem; width:auto; object-fit:contain; display:block; transition:opacity .25s ease;" />
+        <!-- Dark logo: overlaid absolutely, shown on scroll -->
+        <img src="insuro_logo_glavni.png" alt="INSURO" class="logo-dark" style="height:4rem; width:auto; object-fit:contain; position:absolute; top:50%; left:0; transform:translateY(-50%); transition:opacity .25s ease;" />
       </a>
 
       <!-- Desktop links -->
