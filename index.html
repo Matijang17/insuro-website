@@ -80,64 +80,20 @@
     h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; }
 
     /* ── Navbar ── */
-    /* ── Navbar ── */
-    #navbar {
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    #navbar.scrolled {
-      background-color: #fff;
-      box-shadow: 0 2px 20px rgba(0,0,0,.09);
-    }
-    #navbar.scrolled .nav-link {
-      color: #0A2540;
-    }
-    #navbar.scrolled .nav-link:hover {
-      color: #0B6B4F;
-    }
-    #navbar:not(.scrolled) .nav-link {
-      color: #fff;
-    }
-    #navbar:not(.scrolled) .nav-link:hover {
-      color: #d0f0e4;
-    }
-    #navbar.scrolled #mob-icon {
-      color: #0A2540;
-    }
-    #navbar:not(.scrolled) #mob-icon {
-      color: #fff;
-    }
-    .logo-wrap {
-      position: relative;
-      display: block;
-      width: 230px;   /* adjust if needed */
-      height: 64px;   /* adjust if needed */
-    }
-    .logo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transition: opacity .3s ease;
-    }
-    /* Default state */
-    .logo-light {
-      opacity: 1;
-      visibility: visible;
-    }
-    .logo-dark {
-      opacity: 0;
-      visibility: hidden;
-    }
-    /* On scroll */
-    #navbar.scrolled .logo-light {
-      opacity: 0;
-      visibility: hidden;
-    }
-    #navbar.scrolled .logo-dark {
-      opacity: 1;
-      visibility: visible;
-    }
+    #navbar { transition: background-color 0.3s ease, box-shadow 0.3s ease; }
+    #navbar.scrolled { background-color: #fff; box-shadow: 0 2px 20px rgba(0,0,0,.09); }
+    #navbar.scrolled .nav-link { color: #0A2540; }
+    #navbar.scrolled .nav-link:hover { color: #0B6B4F; }
+    #navbar .flex-shrink-0 {position: relative;}
+    #navbar:not(.scrolled) .nav-link { color: #fff; }
+    #navbar:not(.scrolled) .nav-link:hover { color: #d0f0e4; }
+    #navbar.scrolled #mob-icon { color: #0A2540; }
+    #navbar:not(.scrolled) #mob-icon { color: #fff; }
+    .logo {position: absolute; top: 50%; left: 0; transform: translateY(-50%); transition: opacity .25s ease;}
+    .logo-light { opacity: 1; }
+    .logo-dark  { opacity: 0; }
+    #navbar.scrolled .logo-light { opacity: 0; }
+    #navbar.scrolled .logo-dark  { opacity: 1; }
 
     /* ── Blob frames ── */
     .blob    { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
