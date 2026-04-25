@@ -555,7 +555,8 @@
 
   function vis() {
     /* use container width — bulletproof, no CSS conflict */
-    return track.parentElement.offsetWidth >= 900 ? 3 : 2;
+    var w = track.parentElement.offsetWidth;
+    return w >= 900 ? 3 : w >= 640 ? 2 : 1;
   }
 
   function applyWidths() {
