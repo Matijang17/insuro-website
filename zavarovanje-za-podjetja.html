@@ -81,17 +81,25 @@
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
+<!-- ════════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════ -->
 <nav id="navbar" class="fixed top-0 inset-x-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between" style="height:5.5rem;">
 
+      <!-- Logo -->
       <a href="index.html" class="flex-shrink-0" style="position:relative; display:inline-block;">
+        <!-- White logo: in normal flow so anchor has correct width -->
         <img src="insuro_logo_beli.png" alt="INSURO zavarovalniška agencija" class="logo-light" style="height:4rem; width:auto; object-fit:contain; display:block; transition:opacity .25s ease;" />
+        <!-- Dark logo: overlaid absolutely, shown on scroll -->
         <img src="insuro_logo_glavni.png" alt="INSURO" class="logo-dark" style="height:4rem; width:auto; object-fit:contain; position:absolute; top:50%; left:0; transform:translateY(-50%); transition:opacity .25s ease;" />
       </a>
 
+      <!-- Desktop links -->
       <div class="hidden lg:flex items-center gap-7">
-        <a href="index.html" class="nav-link font-medium text-sm tracking-wide transition-colors duration-200">Domov</a>
+        <a href="index.html"                    class="nav-link font-medium text-sm tracking-wide transition-colors duration-200">Domov</a>
+        <!-- Storitve dropdown -->
         <div class="relative" id="nav-storitve">
           <button id="storitve-btn" class="nav-link font-medium text-sm tracking-wide transition-colors duration-200 flex items-center gap-1 cursor-pointer bg-transparent border-0 p-0">
             Storitve
@@ -126,9 +134,9 @@
             </a>
           </div>
         </div>
-        <a href="index.html#o-nas" class="nav-link font-medium text-sm tracking-wide transition-colors duration-200">O nas</a>
-        <a href="pogosta-vprasanja.html" class="nav-link font-medium text-sm tracking-wide transition-colors duration-200">FAQ</a>
-        <a href="kontakt.html" class="nav-link font-medium text-sm tracking-wide transition-colors duration-200">Kontakt</a>
+        <a href="#o-nas"                         class="nav-link font-medium text-sm tracking-wide transition-colors duration-200">O nas</a>
+        <a href="pogosta-vprasanja.html"         class="nav-link font-medium text-sm tracking-wide transition-colors duration-200">FAQ</a>
+        <a href="kontakt.html"                   class="nav-link font-medium text-sm tracking-wide transition-colors duration-200">Kontakt</a>
         <a href="tel:051472755"
            class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors duration-200 shadow">
           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -138,6 +146,7 @@
         </a>
       </div>
 
+      <!-- Hamburger -->
       <button id="hamburger" class="lg:hidden p-2 rounded-md focus:outline-none" aria-label="Meni">
         <svg id="mob-icon" class="h-6 w-6 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path id="hb-open"  stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
@@ -147,9 +156,10 @@
     </div>
   </div>
 
+  <!-- Mobile menu -->
   <div id="mobile-menu" class="lg:hidden hidden bg-white shadow-xl border-t border-gray-100">
     <div class="px-5 py-6 space-y-1">
-      <a href="index.html" class="block py-3 px-3 rounded-xl text-secondary font-medium hover:bg-primary-50 hover:text-primary transition-colors">Domov</a>
+      <a href="index.html"              class="block py-3 px-3 rounded-xl text-secondary font-medium hover:bg-primary-50 hover:text-primary transition-colors">Domov</a>
       <div>
         <button id="mob-storitve-btn" class="w-full flex items-center justify-between py-3 px-3 rounded-xl text-secondary font-medium hover:bg-primary-50 hover:text-primary transition-colors">
           Storitve
@@ -166,9 +176,9 @@
           <a href="pokojninsko-varcevanje.html"   class="block py-2.5 px-3 rounded-xl text-secondary/80 text-sm font-medium hover:bg-primary-50 hover:text-primary transition-colors">Pokojninsko varčevanje</a>
         </div>
       </div>
-      <a href="index.html#o-nas"         class="block py-3 px-3 rounded-xl text-secondary font-medium hover:bg-primary-50 hover:text-primary transition-colors">O nas</a>
-      <a href="pogosta-vprasanja.html"   class="block py-3 px-3 rounded-xl text-secondary font-medium hover:bg-primary-50 hover:text-primary transition-colors">FAQ</a>
-      <a href="kontakt.html"             class="block py-3 px-3 rounded-xl text-secondary font-medium hover:bg-primary-50 hover:text-primary transition-colors">Kontakt</a>
+      <a href="#o-nas"                  class="block py-3 px-3 rounded-xl text-secondary font-medium hover:bg-primary-50 hover:text-primary transition-colors mob-close">O nas</a>
+      <a href="pogosta-vprasanja.html"  class="block py-3 px-3 rounded-xl text-secondary font-medium hover:bg-primary-50 hover:text-primary transition-colors">FAQ</a>
+      <a href="kontakt.html"            class="block py-3 px-3 rounded-xl text-secondary font-medium hover:bg-primary-50 hover:text-primary transition-colors">Kontakt</a>
       <a href="tel:051472755"
          class="flex items-center justify-center gap-2 mt-3 w-full py-3.5 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-colors">
         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
