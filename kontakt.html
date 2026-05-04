@@ -62,10 +62,19 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; }
     h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; }
-    #navbar { background-color: #fff; box-shadow: 0 2px 20px rgba(0,0,0,.09); transition: box-shadow 0.3s ease; }
-    .logo-light { opacity: 0; pointer-events: none; }
-    .logo-dark  { opacity: 1; }
-    .nav-link { color: #0A2540; } .nav-link:hover { color: #0B6B4F; } #mob-icon { color: #0A2540; }
+    /* ── Navbar — transparent → white on scroll ── */
+    #navbar { transition: background-color 0.3s ease, box-shadow 0.3s ease; }
+    #navbar.scrolled { background-color: #fff; box-shadow: 0 2px 20px rgba(0,0,0,.09); }
+    #navbar.scrolled .nav-link { color: #0A2540; }
+    #navbar.scrolled .nav-link:hover { color: #0B6B4F; }
+    #navbar:not(.scrolled) .nav-link { color: #fff; }
+    #navbar:not(.scrolled) .nav-link:hover { color: #d0f0e4; }
+    #navbar.scrolled #mob-icon { color: #0A2540; }
+    #navbar:not(.scrolled) #mob-icon { color: #fff; }
+    .logo-light { opacity: 1; }
+    .logo-dark  { opacity: 0; }
+    #navbar.scrolled .logo-light { opacity: 0; pointer-events: none; }
+    #navbar.scrolled .logo-dark  { opacity: 1; }
     .fiu { opacity: 0; transform: translateY(36px); transition: opacity .65s ease, transform .65s ease; }
     .fiu.visible { opacity: 1; transform: translateY(0); }
     .d1 { transition-delay: .10s; } .d2 { transition-delay: .20s; } .d3 { transition-delay: .30s; }
