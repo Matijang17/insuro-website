@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Block system/config files
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# Sitemap
+Sitemap: https://insuro.si/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

@@ -2,18 +2,30 @@
 <html lang="sl">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="insuro_logo_glavni.png" />
+  <link rel="apple-touch-icon" href="insuro_logo_glavni.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Avtomobilsko zavarovanje | INSURO – Najboljše cene v Sloveniji</title>
   <meta name="description" content="INSURO zagotavlja najcenejše avtomobilsko zavarovanje v Sloveniji – obvezno AO, kasko in zavarovanje voznika. Hitra sklenitev, brez papirjev. Pokličite: 051 472 755." />
   <meta name="keywords" content="avtomobilsko zavarovanje, AO zavarovanje, kasko zavarovanje, zavarovanje vozila, najcenejše avtomobilsko zavarovanje slovenija, INSURO" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.insuro.si/avtomobilsko-zavarovanje.html" />
+  <link rel="canonical" href="https://insuro.si/avtomobilsko-zavarovanje.html" />
+  <link rel="alternate" hreflang="sl" href="https://insuro.si/avtomobilsko-zavarovanje.html" />
   <meta property="og:title" content="Avtomobilsko zavarovanje | INSURO – Najboljše cene v Sloveniji" />
   <meta property="og:description" content="Zagotovimo najcenejše AO, kasko in zavarovanje voznika. Pridobite brezplačno ponudbo še danes." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.insuro.si/avtomobilsko-zavarovanje.html" />
-  <meta property="og:image" content="https://www.insuro.si/insuro_img_avto.png" />
+  <meta property="og:url" content="https://insuro.si/avtomobilsko-zavarovanje.html" />
+  <meta property="og:image" content="https://insuro.si/insuro_img_avto.png" />
 
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="sl_SI" />
+  <meta property="og:site_name" content="INSURO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Avtomobilsko zavarovanje | INSURO – Najboljše cene v Sloveniji" />
+  <meta name="twitter:description" content="Zagotovimo najcenejše AO, kasko in zavarovanje voznika. Pridobite brezplačno ponudbo še danes." />
+  <meta name="twitter:image" content="https://insuro.si/insuro_img_avto.png" />
+  <link rel="preload" as="image" href="insuro_img_avto.png" type="image/png" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -54,7 +66,7 @@
     "provider": {
       "@type": "LocalBusiness",
       "name": "INSURO d.o.o.",
-      "url": "https://www.insuro.si",
+      "url": "https://insuro.si",
       "telephone": "+38651472755",
       "address": {
         "@type": "PostalAddress",
@@ -97,6 +109,27 @@
     .pbadge { transition: transform .2s ease, box-shadow .2s ease; }
     .pbadge:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.09); }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Domov",
+        "item": "https://insuro.si/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Avtomobilsko zavarovanje",
+        "item": "https://insuro.si/avtomobilsko-zavarovanje.html"
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
@@ -351,7 +384,7 @@
             alt="Avtomobilsko zavarovanje – varnost na vsaki cesti"
             class="relative w-full object-cover shadow-2xl"
             style="border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;"
-          />
+           loading="lazy" />
           <!-- Floating badge -->
           <div class="absolute -top-4 -right-4 z-10 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5">
             <div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -612,10 +645,10 @@
     <p class="fiu font-body text-gray-400 text-xs font-semibold tracking-[0.2em] uppercase mb-6">Zavarovalnice, s katerimi sodelujemo</p>
     <div class="fiu d1 flex flex-wrap justify-center items-center gap-4">
             <div class="pbadge bg-white border-2 border-primary/20 rounded-2xl p-5 shadow-sm flex items-center justify-center" style="min-width:160px;height:80px;">
-        <img src="images/Logo-Sava..webp" alt="Zavarovalnica Sava" style="max-height:44px;max-width:130px;object-fit:contain;" />
+        <img src="images/Logo-Sava..webp" alt="Zavarovalnica Sava" style="max-height:44px;max-width:130px;object-fit:contain;"  loading="lazy" />
       </div>
       <div class="pbadge bg-white border-2 border-primary/20 rounded-2xl p-5 shadow-sm flex items-center justify-center" style="min-width:160px;height:80px;">
-        <img src="images/Logo-GRAWE.webp" alt="GRAWE zavarovalnica" style="max-height:44px;max-width:130px;object-fit:contain;" />
+        <img src="images/Logo-GRAWE.webp" alt="GRAWE zavarovalnica" style="max-height:44px;max-width:130px;object-fit:contain;"  loading="lazy" />
       </div>
 </div>
   </div>
@@ -660,7 +693,7 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
 
       <div>
-        <img src="insuro_logo_beli.png" alt="INSURO" class="h-10 w-auto mb-5" style="filter: brightness(0) invert(1);" />
+        <img src="insuro_logo_beli.png" alt="INSURO" class="h-10 w-auto mb-5" style="filter: brightness(0) invert(1);"  loading="lazy" />
         <p class="font-body text-white/45 text-sm leading-relaxed mb-5">
           Vaša zavarovalniška agencija. Zagotavljamo najcenejša zavarovanja na trgu.
         </p>
