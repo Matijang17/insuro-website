@@ -468,13 +468,13 @@
 
 <!-- Asistenca 24/7 mobile modal -->
 <div id="asistenca-modal" class="hidden fixed inset-0 z-[100] lg:hidden">
-  <div id="asistenca-modal-backdrop" class="absolute inset-0 bg-black/60"></div>
+  <div id="asistenca-modal-backdrop" onclick="closeAsistencaModal()" class="absolute inset-0 bg-black/60"></div>
   <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl max-h-[88vh] flex flex-col">
     <div class="flex justify-center pt-2.5 pb-1 flex-shrink-0">
       <div class="w-10 h-1.5 rounded-full bg-gray-300"></div>
     </div>
     <div class="relative px-5 py-4 flex-shrink-0" style="background: linear-gradient(135deg, #0A2540 0%, #0d3060 100%);">
-      <button id="asistenca-modal-close" type="button" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center" aria-label="Zapri">
+      <button id="asistenca-modal-close" type="button" onclick="closeAsistencaModal()" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center" aria-label="Zapri">
         <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
       <div class="flex items-center gap-3 pr-10">
@@ -575,12 +575,10 @@
   if(mobStoritveBtn){mobStoritveBtn.addEventListener('click',function(){var open=!mobStoritveSub.classList.contains('hidden');mobStoritveSub.classList.toggle('hidden',open);mobStoritveChevron.style.transform=open?'':'rotate(180deg)';});}
   var asistencaBtn=document.getElementById('asistenca-btn'),asistencaDropdown=document.getElementById('asistenca-dropdown'),asistencaChevron=document.getElementById('asistenca-chevron'),navAsistenca=document.getElementById('nav-asistenca');
   if(asistencaBtn){asistencaBtn.addEventListener('click',function(e){e.stopPropagation();var open=!asistencaDropdown.classList.contains('hidden');asistencaDropdown.classList.toggle('hidden',open);asistencaChevron.style.transform=open?'':'rotate(180deg)';});document.addEventListener('click',function(e){if(navAsistenca&&!navAsistenca.contains(e.target)){asistencaDropdown.classList.add('hidden');asistencaChevron.style.transform='';}});}
-  var mobAsistencaBtn=document.getElementById('mob-asistenca-btn'),asistencaModal=document.getElementById('asistenca-modal'),asistencaBackdrop=document.getElementById('asistenca-modal-backdrop'),asistencaModalClose=document.getElementById('asistenca-modal-close');
-  function openAsistencaModal(){if(asistencaModal){asistencaModal.classList.remove('hidden');document.body.style.overflow='hidden';}}
-  function closeAsistencaModal(){if(asistencaModal){asistencaModal.classList.add('hidden');document.body.style.overflow='';}}
-  if(mobAsistencaBtn)mobAsistencaBtn.addEventListener('click',openAsistencaModal);
-  if(asistencaBackdrop)asistencaBackdrop.addEventListener('click',closeAsistencaModal);
-  if(asistencaModalClose)asistencaModalClose.addEventListener('click',closeAsistencaModal);
+  window.openAsistencaModal=function(){var m=document.getElementById('asistenca-modal');if(m){m.classList.remove('hidden');document.body.style.overflow='hidden';}};
+  window.closeAsistencaModal=function(){var m=document.getElementById('asistenca-modal');if(m){m.classList.add('hidden');document.body.style.overflow='';}};
+  var mobAsistencaBtn=document.getElementById('mob-asistenca-btn');
+  if(mobAsistencaBtn)mobAsistencaBtn.addEventListener('click',window.openAsistencaModal);
   var mobTocBtn=document.getElementById('mob-toc-btn'),mobTocBody=document.getElementById('mob-toc-body'),mobTocChevron=document.getElementById('mob-toc-chevron');
   if(mobTocBtn){mobTocBtn.addEventListener('click',function(){var open=!mobTocBody.classList.contains('hidden');mobTocBody.classList.toggle('hidden',open);mobTocChevron.style.transform=open?'':'rotate(180deg)';});}
   var progBar=document.getElementById('read-progress');
