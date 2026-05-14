@@ -119,31 +119,69 @@
 
     /* ── Hero quick-action cards ── */
     .hero-quick-card {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding: 20px 14px 18px;
+      justify-content: center;
+      padding: 22px 14px 20px;
       background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
+      border: 1px solid rgba(229,231,235,.7);
+      border-radius: 18px;
       text-decoration: none;
       text-align: center;
       min-height: 168px;
-      box-shadow: 0 6px 16px rgba(10,37,64,.10);
+      box-shadow: 0 8px 24px -10px rgba(10,37,64,.16), 0 2px 6px -2px rgba(10,37,64,.06);
       transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      overflow: hidden;
+    }
+    .hero-quick-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11,107,79,0) 0%, rgba(11,107,79,.05) 100%);
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
     }
     .hero-quick-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 32px rgba(11,107,79,.18);
-      border-color: #0B6B4F;
+      box-shadow: 0 18px 40px -12px rgba(11,107,79,.25), 0 4px 12px -4px rgba(11,107,79,.10);
+      border-color: rgba(11,107,79,.35);
     }
+    .hero-quick-card:hover::before { opacity: 1; }
     .hero-quick-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(11,107,79,.10) 0%, rgba(11,107,79,.04) 100%);
+      margin-bottom: 14px;
+      transition: transform .25s ease, background .25s ease;
     }
+    .hero-quick-card:hover .hero-quick-icon {
+      transform: scale(1.06);
+      background: linear-gradient(135deg, rgba(11,107,79,.16) 0%, rgba(11,107,79,.08) 100%);
+    }
+    .hero-quick-logo-top {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 56px;
+      margin-bottom: 14px;
+      padding: 0 6px;
+    }
+    .hero-quick-logo-top img {
+      height: 34px;
+      width: auto;
+      max-width: 120px;
+      object-fit: contain;
+      display: block;
+      transition: transform .25s ease;
+    }
+    .hero-quick-card:hover .hero-quick-logo-top img { transform: scale(1.05); }
     .hero-quick-label {
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
@@ -153,6 +191,19 @@
       color: #0A2540;
       line-height: 1.35;
     }
+    .hero-quick-card[target="_blank"] .hero-quick-label::after {
+      content: '↗';
+      display: inline-block;
+      margin-left: 4px;
+      font-size: 12px;
+      color: #0B6B4F;
+      opacity: 0.5;
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .hero-quick-card[target="_blank"]:hover .hero-quick-label::after {
+      opacity: 1;
+      transform: translate(2px, -2px);
+    }
     .hero-quick-sublabel {
       font-family: 'Inter', sans-serif;
       font-size: 10.5px;
@@ -160,27 +211,13 @@
       margin-top: 5px;
       letter-spacing: 0.01em;
     }
-    .hero-quick-logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: auto;
-      padding-top: 10px;
-      height: 30px;
-    }
-    .hero-quick-logo img {
-      height: 22px;
-      width: auto;
-      max-width: 95px;
-      object-fit: contain;
-      display: block;
-    }
     @media (max-width: 640px) {
-      .hero-quick-card { min-height: 154px; padding: 16px 10px 14px; }
-      .hero-quick-icon svg { width: 32px; height: 32px; }
+      .hero-quick-card { min-height: 150px; padding: 18px 10px 16px; border-radius: 16px; }
+      .hero-quick-icon { width: 48px; height: 48px; border-radius: 12px; margin-bottom: 10px; }
+      .hero-quick-icon svg { width: 28px; height: 28px; }
+      .hero-quick-logo-top { height: 48px; margin-bottom: 10px; }
+      .hero-quick-logo-top img { height: 28px; max-width: 100px; }
       .hero-quick-label { font-size: 10px; letter-spacing: 0.12em; }
-      .hero-quick-logo { height: 26px; padding-top: 8px; }
-      .hero-quick-logo img { height: 19px; max-width: 80px; }
     }
   </style>
 
@@ -444,53 +481,31 @@
         </a>
 
         <a href="https://www.zav-sava.si/prijava-skode/?_gl=1*1aeubny*_up*MQ..*_ga*MzQ1MjcxOTI2LjE3Nzg3NDA2MTk.*_ga_CHSZ4L5Q75*czE3Nzg3NDA2MTkkbzEkZzEkdDE3Nzg3NDA2MjMkajU2JGwwJGgw" target="_blank" rel="noopener noreferrer" aria-label="Prijava škode – Zavarovalnica Sava (zunanja povezava)" title="Prijava škode pri Zavarovalnici Sava" class="hero-quick-card">
-          <span class="hero-quick-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0B6B4F" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-            </svg>
-          </span>
-          <span class="hero-quick-label">Prijava škode</span>
-          <span class="hero-quick-logo">
+          <span class="hero-quick-logo-top">
             <img src="images/Logo-Sava..webp" alt="Zavarovalnica Sava" loading="lazy" />
           </span>
+          <span class="hero-quick-label">Prijava škode</span>
         </a>
 
         <a href="https://www.grawe.si/prijava-skode/" target="_blank" rel="noopener noreferrer" aria-label="Prijava škode – GRAWE zavarovalnica (zunanja povezava)" title="Prijava škode pri zavarovalnici GRAWE" class="hero-quick-card">
-          <span class="hero-quick-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0B6B4F" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-            </svg>
-          </span>
-          <span class="hero-quick-label">Prijava škode</span>
-          <span class="hero-quick-logo">
+          <span class="hero-quick-logo-top">
             <img src="images/Logo-GRAWE.webp" alt="GRAWE zavarovalnica" loading="lazy" />
           </span>
+          <span class="hero-quick-label">Prijava škode</span>
         </a>
 
         <a href="https://www.zav-sava.si/kontakti-in-lokacije/lokacije/?_gl=1*6psusz*_up*MQ..*_gs*MQ..*_ga*MTUzMTQyMzc1LjE3Nzg2NjUxOTY.*_ga_CHSZ4L5Q75*czE3Nzg2NjUxOTYkbzEkZzAkdDE3Nzg2NjUxOTYkajYwJGwwJGgw&gclid=CjwKCAjwwpDQBhAuEiwAa-4WozoYKWPr-TG0ZEl1Fu_znpjbPdLJzTJuit1XF8ALUe0GGVRAfFiLxRoCYI0QAvD_BwE&gbraid=0AAAAACQCAekfnoIot8EFv9i_ThpPMT6OV" target="_blank" rel="noopener noreferrer" aria-label="Servisna in cenilna mesta – Zavarovalnica Sava (zunanja povezava)" title="Servisna in cenilna mesta Sava" class="hero-quick-card">
-          <span class="hero-quick-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0B6B4F" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </span>
-          <span class="hero-quick-label">Servisna mesta</span>
-          <span class="hero-quick-logo">
+          <span class="hero-quick-logo-top">
             <img src="images/Logo-Sava..webp" alt="Zavarovalnica Sava" loading="lazy" />
           </span>
+          <span class="hero-quick-label">Servisna mesta</span>
         </a>
 
         <a href="https://www.grawe.si/prodajna-mesta/" target="_blank" rel="noopener noreferrer" aria-label="Servisna in cenilna mesta – GRAWE zavarovalnica (zunanja povezava)" title="Servisna in cenilna mesta GRAWE" class="hero-quick-card">
-          <span class="hero-quick-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0B6B4F" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </span>
-          <span class="hero-quick-label">Servisna mesta</span>
-          <span class="hero-quick-logo">
+          <span class="hero-quick-logo-top">
             <img src="images/Logo-GRAWE.webp" alt="GRAWE zavarovalnica" loading="lazy" />
           </span>
+          <span class="hero-quick-label">Servisna mesta</span>
         </a>
 
       </div>
