@@ -1,9 +1,14 @@
 User-agent: *
 Allow: /
 
-# Block system/config files
-Disallow: /*.json$
-Disallow: /*.xml$
+# Block API endpoints + Node project metadata
+Disallow: /api/
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /tailwind.config.js
+Disallow: /vercel.json
+Disallow: /_tw_input.css
 
 # Sitemap
 Sitemap: https://insuro.si/sitemap.xml

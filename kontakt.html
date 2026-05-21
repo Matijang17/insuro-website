@@ -29,12 +29,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="insuro.css" />
+  <!-- Google Consent Mode v2 — defaults to denied; consent.js updates this on user choice -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ window.dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
+  </script>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
-    "name": "INSURO d.o.o.",
+    "name": "INSURO",
+    "legalName": "Insuro, zavarovalno zastopanje, Jan Kurinčič s.p.",
+    "taxID": "50150103",
+    "vatID": "SI50150103",
     "description": "Zavarovalniška agencija – za vas poiščemo najugodnejšo ponudbo zavarovanja v celotni Sloveniji",
     "url": "https://insuro.si",
     "telephone": "+38651472755",
@@ -65,7 +80,7 @@
     "branch": [
       {
         "@type": "InsuranceAgency",
-        "name": "INSURO d.o.o. – Pisarna Tolmin",
+        "name": "INSURO – Pisarna Tolmin",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Pod klancem 3",
@@ -428,18 +443,31 @@
               class="w-full px-4 py-3 border border-gray-200 rounded-xl font-body text-sm text-secondary placeholder-gray-400 bg-neutral transition-colors resize-none"></textarea>
           </div>
 
+          <!-- Honeypot (anti-spam) -->
+          <div style="position:absolute;left:-9999px;opacity:0;pointer-events:none" aria-hidden="true">
+            <label>Vaša spletna stran<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
           <div class="flex items-start gap-3">
-            <input type="checkbox" id="soglasje" name="soglasje" required
+            <input type="checkbox" id="soglasje-zasebnost" name="soglasje_zasebnost" required
               class="mt-0.5 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary flex-shrink-0" />
-            <label class="font-body text-gray-500 text-xs leading-relaxed" for="soglasje">
-              Strinjam se z obdelavo osebnih podatkov za namen odgovora na povpraševanje. Podatki ne bodo posredovani tretjim osebam.
+            <label class="font-body text-gray-500 text-xs leading-relaxed" for="soglasje-zasebnost">
+              Strinjam se z obdelavo osebnih podatkov za namen odgovora na povpraševanje, skladno s <a href="politika-zasebnosti.html" target="_blank" rel="noopener" class="text-primary hover:underline">Politiko zasebnosti</a>. <span class="text-red-500">*</span>
             </label>
           </div>
 
-          <button type="submit"
-            class="w-full inline-flex items-center justify-center gap-2 py-4 px-8 bg-primary text-white font-semibold text-sm rounded-full hover:bg-primary-dark transition-all duration-200 shadow-lg hover:-translate-y-0.5">
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-            Pošlji sporočilo
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="soglasje-pogoji" name="soglasje_pogoji" required
+              class="mt-0.5 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary flex-shrink-0" />
+            <label class="font-body text-gray-500 text-xs leading-relaxed" for="soglasje-pogoji">
+              Potrjujem, da sem se seznanil-a s <a href="pogoji-uporabe.html" target="_blank" rel="noopener" class="text-primary hover:underline">Pogoji uporabe</a> in se z njimi strinjam. <span class="text-red-500">*</span>
+            </label>
+          </div>
+
+          <button type="submit" id="submit-btn"
+            class="w-full inline-flex items-center justify-center gap-2 py-4 px-8 bg-primary text-white font-semibold text-sm rounded-full hover:bg-primary-dark transition-all duration-200 shadow-lg hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed">
+            <svg id="submit-icon" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            <span id="submit-label">Pošlji sporočilo</span>
           </button>
         </form>
 
@@ -448,6 +476,14 @@
           <div>
             <p class="font-heading font-semibold text-primary text-sm">Sporočilo je bilo poslano!</p>
             <p class="font-body text-gray-500 text-sm mt-0.5">Odgovorili vam bomo v roku 24 ur. Hvala za zaupanje.</p>
+          </div>
+        </div>
+
+        <div id="formError" class="hidden mt-6 p-5 bg-red-50 border border-red-100 rounded-2xl flex items-start gap-3">
+          <svg class="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <p class="font-heading font-semibold text-red-700 text-sm">Sporočila ni bilo mogoče poslati.</p>
+            <p class="font-body text-gray-600 text-sm mt-0.5">Poskusite znova ali nas pokličite na <a href="tel:051472755" class="text-primary font-medium hover:underline">051 472 755</a>.</p>
           </div>
         </div>
       </div>
@@ -557,9 +593,9 @@
               <svg class="h-3.5 w-3.5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">051 472 755</span>
             </a>
-            <a href="mailto:matej@insuro.si" class="flex items-center gap-2 group">
+            <a href="mailto:info@insuro.si" class="flex items-center gap-2 group">
               <svg class="h-3.5 w-3.5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">matej@insuro.si</span>
+              <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">info@insuro.si</span>
             </a>
           </div>
         </div>
@@ -583,9 +619,9 @@
               <svg class="h-3.5 w-3.5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">051 472 755</span>
             </a>
-            <a href="mailto:ana@insuro.si" class="flex items-center gap-2 group">
+            <a href="mailto:info@insuro.si" class="flex items-center gap-2 group">
               <svg class="h-3.5 w-3.5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">ana@insuro.si</span>
+              <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">info@insuro.si</span>
             </a>
           </div>
         </div>
@@ -609,9 +645,9 @@
               <svg class="h-3.5 w-3.5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">051 472 755</span>
             </a>
-            <a href="mailto:luka@insuro.si" class="flex items-center gap-2 group">
+            <a href="mailto:info@insuro.si" class="flex items-center gap-2 group">
               <svg class="h-3.5 w-3.5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">luka@insuro.si</span>
+              <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">info@insuro.si</span>
             </a>
           </div>
         </div>
@@ -635,9 +671,9 @@
               <svg class="h-3.5 w-3.5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">051 472 755</span>
             </a>
-            <a href="mailto:sara@insuro.si" class="flex items-center gap-2 group">
+            <a href="mailto:info@insuro.si" class="flex items-center gap-2 group">
               <svg class="h-3.5 w-3.5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">sara@insuro.si</span>
+              <span class="font-body text-secondary text-xs group-hover:text-primary transition-colors">info@insuro.si</span>
             </a>
           </div>
         </div>
@@ -693,11 +729,11 @@
       </div>
     </div>
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="font-body text-white/25 text-xs">© 2024 INSURO d.o.o. Vse pravice pridržane.</p>
+      <p class="font-body text-white/25 text-xs">© 2026 INSURO &mdash; Insuro, zavarovalno zastopanje, Jan Kurinčič s.p. Vse pravice pridržane.</p>
       <div class="flex gap-6">
-        <a href="#" class="font-body text-white/25 hover:text-white/60 text-xs transition-colors">Politika zasebnosti</a>
-        <a href="#" class="font-body text-white/25 hover:text-white/60 text-xs transition-colors">Pogoji poslovanja</a>
-        <a href="#" class="font-body text-white/25 hover:text-white/60 text-xs transition-colors">Piškotki</a>
+        <a href="politika-zasebnosti.html" class="font-body text-white/25 hover:text-white/60 text-xs transition-colors">Politika zasebnosti</a>
+        <a href="pogoji-uporabe.html" class="font-body text-white/25 hover:text-white/60 text-xs transition-colors">Pogoji uporabe</a>
+        <a href="piskotki.html" class="font-body text-white/25 hover:text-white/60 text-xs transition-colors">Piškotki</a>
       </div>
     </div>
   </div>
@@ -778,10 +814,51 @@
   var mobAsistencaBtn = document.getElementById('mob-asistenca-btn');
   if (mobAsistencaBtn) mobAsistencaBtn.addEventListener('click', window.openAsistencaModal);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    document.getElementById('contactForm').classList.add('hidden');
-    document.getElementById('formSuccess').classList.remove('hidden');
+    var form = document.getElementById('contactForm');
+    var submitBtn = document.getElementById('submit-btn');
+    var submitLabel = document.getElementById('submit-label');
+    var successBox = document.getElementById('formSuccess');
+    var errorBox = document.getElementById('formError');
+
+    errorBox.classList.add('hidden');
+    submitBtn.disabled = true;
+    var originalLabel = submitLabel.textContent;
+    submitLabel.textContent = 'Pošiljanje...';
+
+    var fd = new FormData(form);
+    var payload = {
+      ime:       (fd.get('ime') || '').toString().trim(),
+      telefon:   (fd.get('telefon') || '').toString().trim(),
+      email:     (fd.get('email') || '').toString().trim(),
+      vrsta:     (fd.get('vrsta') || '').toString().trim(),
+      sporocilo: (fd.get('sporocilo') || '').toString().trim(),
+      soglasje_zasebnost: !!fd.get('soglasje_zasebnost'),
+      soglasje_pogoji:    !!fd.get('soglasje_pogoji'),
+      website:   (fd.get('website') || '').toString(), // honeypot
+      page_url:  window.location.href,
+      submitted_at: new Date().toISOString()
+    };
+
+    try {
+      var res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('Status ' + res.status);
+      form.classList.add('hidden');
+      successBox.classList.remove('hidden');
+      // Fire analytics conversion if consent given (GA4 + Meta Pixel via consent.js)
+      if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { method: 'contact_form' });
+      if (typeof window.fbq === 'function')  window.fbq('track', 'Lead');
+    } catch (err) {
+      console.error('Contact form error:', err);
+      errorBox.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitLabel.textContent = originalLabel;
+    }
   }
 
   const observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
@@ -971,7 +1048,7 @@
 
     <!-- Footer -->
     <div class="px-4 py-2.5 bg-gray-50 border-t border-gray-100">
-      <p class="text-gray-400 text-xs text-center">INSURO d.o.o. &middot; Nova Gorica</p>
+      <p class="text-gray-400 text-xs text-center">INSURO &middot; Jan Kurinčič s.p.</p>
     </div>
 
   </div>

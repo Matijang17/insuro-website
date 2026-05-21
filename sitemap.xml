@@ -121,9 +121,34 @@
   <url>
     <loc>https://insuro.si/kontakt.html</loc>
     <xhtml:link rel="alternate" hreflang="sl" href="https://insuro.si/kontakt.html"/>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Legal / Compliance pages -->
+  <url>
+    <loc>https://insuro.si/politika-zasebnosti.html</loc>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://insuro.si/politika-zasebnosti.html"/>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://insuro.si/pogoji-uporabe.html</loc>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://insuro.si/pogoji-uporabe.html"/>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://insuro.si/piskotki.html</loc>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://insuro.si/piskotki.html"/>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
