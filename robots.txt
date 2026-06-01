@@ -1,3 +1,6 @@
+# ==========================================
+# 1. SPLOŠNA PRAVILA IN VARNOST
+# ==========================================
 User-agent: *
 Allow: /
 
@@ -10,8 +13,38 @@ Disallow: /tailwind.config.js
 Disallow: /vercel.json
 Disallow: /_tw_input.css
 
-# Sitemap
-Sitemap: https://insuro.si/sitemap.xml
-
 # Crawl-delay for polite crawling
 Crawl-delay: 1
+
+# ==========================================
+# 2. DOVOLJENJA ZA AI ISKALNIKE (LLM BOTS)
+# ==========================================
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /node_modules/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /node_modules/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /node_modules/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /node_modules/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /node_modules/
+
+# ==========================================
+# 3. ZEMLJEVID STRANI
+# ==========================================
+Sitemap: https://insuro.si/sitemap.xml
