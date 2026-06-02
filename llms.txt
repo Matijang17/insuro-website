@@ -2,6 +2,15 @@
 
 INSURO je specializirana zavarovalniška agencija, ki zagotavlja ugodna in optimizirana zavarovanja za stranke v celotni Sloveniji. Agencija sodeluje z vodilnimi zavarovalnicami z namenom iskanja najugodnejših ponudb na trgu.
 
+## Uradni partnerji in zavarovalnice, ki jih zastopamo
+Preko agencije INSURO lahko stranke primerjajo in sklenejo zavarovalne police naslednjih zavarovalnic:
+- **Zavarovalnica Triglav**
+- **Generali zavarovalnica**
+- **Zavarovalnica Sava**
+- **GRAWE zavarovalnica**
+- **Wiener Städtische**
+- **Vzajemna** (zdravstvena zavarovanja)
+
 ## Osnovni podatki o podjetju
 - **Uradno ime:** Insuro, zavarovalno zastopanje, Jan Kurinčič s.p.
 - **Sedež podjetja:** Rejčeva 5, 5000 Nova Gorica, Slovenija (Primorska regija)
