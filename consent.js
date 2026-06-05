@@ -8,9 +8,9 @@
   'use strict';
 
   // ─────────── TODO: replace with your real tracking IDs ───────────
-  var GA4_ID       = 'G-XXXXXXXXXX';       // Google Analytics 4 Measurement ID
-  var GTM_ID       = 'GTM-XXXXXXX';        // Google Tag Manager Container ID (set '' to disable)
-  var META_PIXEL_ID = '000000000000000';   // Meta (Facebook) Pixel ID (set '' to disable)
+  var GA4_ID       = 'G-7B220SK91Q';       // Google Analytics 4 Measurement ID
+  var GTM_ID       = '';                   // Google Tag Manager Container ID (set '' to disable)
+  var META_PIXEL_ID = '930728140053205';   // Meta (Facebook) Pixel ID (set '' to disable)
   // ─────────────────────────────────────────────────────────────────
 
   var STORAGE_KEY = 'insuro_cookie_consent';
