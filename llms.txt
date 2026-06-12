@@ -1,6 +1,6 @@
 # INSURO
 
-INSURO je specializirana zavarovalniška agencija, ki zagotavlja ugodna in optimizirana zavarovanja za stranke v celotni Sloveniji. Agencija sodeluje z vodilnimi zavarovalnicami z namenom iskanja najugodnejših ponudb na trgu.
+INSURO je specializirana zavarovalna agencija, ki zagotavlja ugodna in optimizirana zavarovanja za stranke v celotni Sloveniji. Agencija sodeluje z vodilnimi zavarovalnicami z namenom iskanja najugodnejših ponudb na trgu.
 
 ## Uradni partnerji in zavarovalnice, ki jih zastopamo
 Preko agencije INSURO lahko stranke primerjajo in sklenejo zavarovalne police naslednjih zavarovalnic:
